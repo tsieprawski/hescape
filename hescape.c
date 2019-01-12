@@ -19,7 +19,7 @@
 # define unlikely(x) (x)
 #endif
 
-static const uint8_t *ESCAPED_STRING[] = {
+static const char *ESCAPED_STRING[] = {
   "",
   "&quot;",
   "&amp;",
@@ -121,7 +121,6 @@ size_t
 hesc_escape_html(uint8_t **dest, const uint8_t *buf, size_t size)
 {
   size_t asize = 0, esc_i, esize = 0, i = 0, rbuf_i = 0;
-  const uint8_t *esc;
   uint8_t *rbuf = NULL;
 
 # ifdef __SSE4_2__

@@ -5,8 +5,10 @@ project('hescape', 'c',
 hescape_inc = include_directories('.')
 hescape_lib = shared_library('hescape',
     'hescape.c',
-    include_directories: hescape_inc
+    include_directories: hescape_inc,
+    install: true
 )
+install_headers('hescape.h')
 
 hescape_dep = declare_dependency(link_with: hescape_lib,
     include_directories: hescape_inc)
