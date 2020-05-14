@@ -2,12 +2,16 @@ project('hescape', 'c',
     version: '0.6.12'
 )
 
+pkg = import('pkgconfig')
+
 hescape_inc = include_directories('.')
 hescape_lib = shared_library('hescape',
     'hescape.c',
     include_directories: hescape_inc,
     install: true
 )
+pkg.generate(hescape_lib)
+
 hescape_static_lib = static_library('hescape',
     'hescape.c',
     include_directories: hescape_inc,
